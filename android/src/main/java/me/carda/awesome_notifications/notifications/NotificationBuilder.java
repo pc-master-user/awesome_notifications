@@ -221,6 +221,8 @@ public class NotificationBuilder {
 
         if(pushNotification.content.fullScreen){
             builder.setFullScreenIntent(pendingIntent,true);
+            builder.setCategory(NotificationCompat.CATEGORY_CALL);
+            builder.setPriority(NotificationCompat.PRIORITY_MAX);
         }
 
         builder.setContentIntent(pendingIntent);
