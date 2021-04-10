@@ -219,6 +219,10 @@ public class NotificationBuilder {
             builder.setChannelId(channel.getChannelKey());
         }
 
+        if(pushNotification.content.fullScreen){
+            builder.setFullScreenIntent(pendingIntent,true);
+        }
+
         builder.setContentIntent(pendingIntent);
         builder.setDeleteIntent(deleteIntent);
 

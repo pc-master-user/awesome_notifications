@@ -31,6 +31,7 @@ public class NotificationContentModel extends Model {
     public String body;
     public String summary;
     public Boolean showWhen;
+    public Boolean fullScreen;
     public List<Object> actionButtons;
     public Map<String, String> payload;
     public Boolean playSound;
@@ -88,7 +89,7 @@ public class NotificationContentModel extends Model {
         summary = getValueOrDefault(arguments, Definitions.NOTIFICATION_SUMMARY, String.class);
 
         playSound = getValueOrDefault(arguments, Definitions.NOTIFICATION_PLAY_SOUND, Boolean.class);
-
+        fullScreen = getValueOrDefault(arguments, Definitions.NOTIFICATION_FULL_SCREEN, Boolean.class);
         showWhen = getValueOrDefault(arguments, Definitions.NOTIFICATION_SHOW_WHEN, Boolean.class);
         locked = getValueOrDefault(arguments, Definitions.NOTIFICATION_LOCKED, Boolean.class);
 
@@ -136,6 +137,8 @@ public class NotificationContentModel extends Model {
         returnedObject.put(Definitions.NOTIFICATION_LOCKED, this.locked);
 
         returnedObject.put(Definitions.NOTIFICATION_PLAY_SOUND, this.playSound);
+
+        returnedObject.put(Definitions.NOTIFICATION_FULL_SCREEN, this.fullScreen);
 
         returnedObject.put(Definitions.NOTIFICATION_TICKER, this.ticker);
         returnedObject.put(Definitions.NOTIFICATION_PAYLOAD, this.payload);

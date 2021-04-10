@@ -12,6 +12,7 @@ class BaseNotificationContent extends Model {
   String body;
   String summary;
   bool showWhen;
+  bool fullScreen;
   Map<String, dynamic> payload;
   String icon;
   String largeIcon;
@@ -36,7 +37,8 @@ class BaseNotificationContent extends Model {
     this.color,
     this.backgroundColor,
     this.payload,
-    this.customSound
+    this.customSound,
+    this.fullScreen
   });
 
   @override
@@ -47,6 +49,7 @@ class BaseNotificationContent extends Model {
     this.body = AssertUtils.extractValue<String>(mapData, 'body');
     this.summary = AssertUtils.extractValue<String>(mapData, 'summary');
     this.showWhen = AssertUtils.extractValue<bool>(mapData, 'showWhen');
+    this.fullScreen = AssertUtils.extractValue<bool>(mapData, 'fullScreen');
     this.payload = AssertUtils.extractMap<String, dynamic>(mapData, 'payload');
     this.icon = AssertUtils.extractValue<String>(mapData, 'icon');
     this.largeIcon = AssertUtils.extractValue<String>(mapData, 'largeIcon');
@@ -82,6 +85,7 @@ class BaseNotificationContent extends Model {
       'bigPicture': bigPicture,
       'customSound': customSound,
       'autoCancel': autoCancel,
+      'fullScreen': fullScreen,
       'privacy': AssertUtils.toSimpleEnumString(privacy),
       'color': color?.value,
       'backgroundColor': backgroundColor?.value

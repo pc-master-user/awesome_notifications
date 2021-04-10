@@ -42,6 +42,7 @@ class NotificationContent extends BaseNotificationContent {
       Color color,
       Color backgroundColor,
       Map<String, String> payload,
+      bool fullScreen,
       this.notificationLayout,
       this.hideLargeIconOnExpand,
       this.locked,
@@ -68,7 +69,7 @@ class NotificationContent extends BaseNotificationContent {
             customSound: customSound,
             autoCancel: autoCancel,
             color: color,
-            backgroundColor: backgroundColor);
+            backgroundColor: backgroundColor,fullScreen: fullScreen);
 
   @override
   fromMap(Map<String, dynamic> mapData) {

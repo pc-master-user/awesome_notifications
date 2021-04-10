@@ -4,6 +4,7 @@
     <!-- Samsung Badge -->
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
     <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
     <!-- Sony Badge -->
     <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />

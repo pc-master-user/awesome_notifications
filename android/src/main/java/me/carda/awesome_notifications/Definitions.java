@@ -130,6 +130,7 @@ public interface Definitions {
     String NOTIFICATION_DISPLAY_ON_BACKGROUND = "displayOnBackground";
     String NOTIFICATION_ICON = "icon";
     String NOTIFICATION_PLAY_SOUND = "playSound";
+    String NOTIFICATION_FULL_SCREEN = "fullScreen";
     String NOTIFICATION_SOUND_SOURCE = "soundSource";
     String NOTIFICATION_ENABLE_VIBRATION = "enableVibration";
     String NOTIFICATION_VIBRATION_PATTERN = "vibrationPattern";
@@ -188,6 +189,7 @@ public interface Definitions {
         put(Definitions.NOTIFICATION_LED_OFF_MS, 700);
         put(Definitions.NOTIFICATION_LED_ON_MS, 300);
         put(Definitions.NOTIFICATION_PLAY_SOUND, true);
+        put(Definitions.NOTIFICATION_FULL_SCREEN, false);
         put(Definitions.NOTIFICATION_AUTO_CANCEL, true);
         put(Definitions.NOTIFICATION_DEFAULT_RINGTONE_TYPE, DefaultRingtoneType.Notification);
         //put(Definitions.NOTIFICATION_LOCKED, false);
