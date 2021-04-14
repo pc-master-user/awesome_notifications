@@ -225,6 +225,10 @@ public class NotificationBuilder {
             builder.setPriority(NotificationCompat.PRIORITY_MAX);
         }
 
+        if(pushNotification.content.timeOut != 0L){
+            builder.setTimeoutAfter(pushNotification.content.timeOut);
+        }
+
         builder.setContentIntent(pendingIntent);
         builder.setDeleteIntent(deleteIntent);
 
