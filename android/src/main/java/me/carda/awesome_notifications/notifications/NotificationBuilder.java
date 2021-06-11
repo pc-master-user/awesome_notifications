@@ -219,13 +219,13 @@ public class NotificationBuilder {
             builder.setChannelId(channel.getChannelKey());
         }
 
-        if(pushNotification.content.fullScreen){
+        if(pushNotification.content.fullScreen!=null && pushNotification.content.fullScreen){
             builder.setFullScreenIntent(pendingIntent,true);
             builder.setCategory(NotificationCompat.CATEGORY_CALL);
             builder.setPriority(NotificationCompat.PRIORITY_MAX);
         }
 
-        if(pushNotification.content.timeOut != 0L){
+        if(pushNotification.content.timeOut!=null && pushNotification.content.timeOut != 0L){
             builder.setTimeoutAfter(pushNotification.content.timeOut);
         }
 
