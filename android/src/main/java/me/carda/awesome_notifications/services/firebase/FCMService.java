@@ -20,6 +20,7 @@ import me.carda.awesome_notifications.BroadcastSender;
 import me.carda.awesome_notifications.notifications.models.PushNotification;
 import me.carda.awesome_notifications.notifications.enumeratos.NotificationSource;
 import me.carda.awesome_notifications.notifications.NotificationSender;
+import me.carda.awesome_notifications.notifications.NotificationScheduler;
 import me.carda.awesome_notifications.Definitions;
 import me.carda.awesome_notifications.utils.ListUtils;
 import me.carda.awesome_notifications.utils.MapUtils;
@@ -123,12 +124,19 @@ public class FCMService extends FirebaseMessagingService {
 
             PushNotification pushNotification = new PushNotification().fromMap(parsedRemoteMessage);
             //pushNotification.validate(applicationContext);
-
-            NotificationSender.send(
-                applicationContext,
-                NotificationSource.Firebase,
-                pushNotification
-            );
+            if(pushNotification.schedule == null){
+                NotificationSender.send(
+                        applicationContext,
+                        NotificationSource.Firebase,
+                        pushNotification
+                );
+            }else {
+                NotificationScheduler.schedule(
+                        applicationContext,
+                        NotificationSource.Firebase,
+                        pushNotification
+                );
+            }
 
         } catch (Exception e) {
             Log.d(TAG, "Invalid push notification content");
