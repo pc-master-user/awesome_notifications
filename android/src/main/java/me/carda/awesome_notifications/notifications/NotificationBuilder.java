@@ -152,6 +152,9 @@ public class NotificationBuilder {
                 */
 
                 NotificationSender.cancelNotification(context, notificationId);
+                 if(intent.getStringExtra(Definitions.NOTIFICATION_BUTTON_KEY).equals("SLOT_DISMISS")){
+                    NotificationScheduler.cancelNotification(context, notificationId);
+                }
             }
 
             if(StringUtils.isNullOrEmpty(actionModel.displayedDate)){
