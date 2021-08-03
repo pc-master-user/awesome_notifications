@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:awesome_notifications_example/common_widgets/led_light.dart';
 import 'package:flutter/material.dart' hide DateUtils;
-import 'package:flutter/material.dart' as Material show DateUtils;
+//import 'package:flutter/material.dart' as Material show DateUtils;
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:fluttertoast/fluttertoast.dart';

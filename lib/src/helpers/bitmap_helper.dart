@@ -52,7 +52,7 @@ class BitmapHelper {
     stream.addListener(listener);
     final imageInfo = await completer.future;
     final ui.Image image = imageInfo.image;
-    final ByteData byteData = await image.toByteData();
+    final ByteData byteData = await (image.toByteData() as FutureOr<ByteData>);
     final Uint8List listInt = byteData.buffer.asUint8List();
 
     return BitmapHelper.fromHeadless(image.width, image.height, listInt);
@@ -60,14 +60,14 @@ class BitmapHelper {
 
   Future<ui.Image> buildImage() async {
     final Completer<ui.Image> imageCompleter = Completer();
-    final headedContent = buildHeaded();
+    final headedContent = buildHeaded()!;
     ui.decodeImageFromList(headedContent, (ui.Image img) {
       imageCompleter.complete(img);
     });
     return imageCompleter.future;
   }
 
-  Uint8List buildHeaded() {
+  Uint8List? buildHeaded() {
     final header = RGBA32BitmapHeader(size, width, height)
       ..applyContent(content);
     return header.headerIntList;
@@ -78,7 +78,7 @@ class RGBA32BitmapHeader {
   RGBA32BitmapHeader(this.contentSize, int width, int height) {
     headerIntList = Uint8List(fileLength);
 
-    final ByteData bd = headerIntList.buffer.asByteData();
+    final ByteData bd = headerIntList!.buffer.asByteData();
     bd.setUint8(0x0, 0x42);
     bd.setUint8(0x1, 0x4d);
     bd.setInt32(0x2, fileLength, Endian.little);
@@ -99,14 +99,14 @@ class RGBA32BitmapHeader {
   int contentSize;
 
   void applyContent(Uint8List contentIntList) {
-    headerIntList.setRange(
+    headerIntList!.setRange(
       RGBA32HeaderSize,
       fileLength,
       contentIntList,
     );
   }
 
-  Uint8List headerIntList;
+  Uint8List? headerIntList;
 
   int get fileLength => contentSize + RGBA32HeaderSize;
 }

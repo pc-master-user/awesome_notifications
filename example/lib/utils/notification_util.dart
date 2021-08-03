@@ -1204,6 +1204,6 @@ Future<void> cancelAllNotifications() async {
   await AwesomeNotifications().cancelAll();
 }
 
-String _toTwoDigitString(int value) {
+/*String _toTwoDigitString(int value) {
   return value.toString().padLeft(2, '0');
-}
+}*/

@@ -42,8 +42,8 @@ class MediaPlayerCentral {
   static MediaLifeCycle _lifeCycle = MediaLifeCycle.Stopped;
   static List<MediaModel> _playlist = [];
 
-  static StreamController<MediaModel> _mediaBroadcaster = StreamController<MediaModel>.broadcast();
   static StreamController<Duration> _mediaProgress = StreamController<Duration>.broadcast();
+  static StreamController<MediaModel> _mediaBroadcaster = StreamController<MediaModel>.broadcast();
 
   Stream<MediaModel> get mediaBroadcaster {
     return _mediaBroadcaster.stream;
@@ -201,7 +201,7 @@ class MediaPlayerCentral {
   }
 
   dispose(){
-    _mediaBroadcaster.sink.close();
     _mediaProgress.sink.close();
+    _mediaBroadcaster.sink.close();
   }
 }
